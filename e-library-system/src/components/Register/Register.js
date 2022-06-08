@@ -23,7 +23,7 @@ function Register() {
     event.preventDefault();
     setValidation({
       ...getValidation, email: !emailValidation(getForm.email) ? "Please provide proper email ID" : "",
-      password: !passwordValidation(getForm.password) ? "Invalid password" : ""
+      password: !passwordValidation(getForm.password) ? "Invalid password" : "",
     });
     if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
       alert("Successfully registered");
