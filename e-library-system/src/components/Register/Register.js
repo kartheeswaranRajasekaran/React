@@ -1,7 +1,7 @@
 import './Register.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { emailValidation, passwordValidation } from '../Validation';
+import { emailValidation, passwordValidation ,fNameValidation,lNameValidation} from '../Validation';
 function Register() {
   const navigate = useNavigate();
   const [getForm, setForm] = useState({
@@ -11,6 +11,8 @@ function Register() {
     password: ''
   });
   const [getValidation, setValidation] = useState({
+    firstName:'',
+    lastName:'',
     email: '',
     password: ''
   });
@@ -22,16 +24,21 @@ function Register() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     setValidation({
-      ...getValidation, email: !emailValidation(getForm.email) ? "Please provide proper email ID" : "",
+      ...getValidation,
+      firstName: !fNameValidation(getForm.firstName) ? "first name should be alphabet" : "nice",
+      lastName: !lNameValidation(getForm.lastName) ? "last name should be alphabet" : "", 
+      email: !emailValidation(getForm.email) ? "Please provide proper email ID" : "",
       password: !passwordValidation(getForm.password) ? "Invalid password" : "",
     });
     if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
       alert("Successfully registered");
+      sessionStorage.setItem("firstName",getForm.firstName);
+      sessionStorage.setItem("lastName",getForm.lastName);
       sessionStorage.setItem("email", getForm.email);
       sessionStorage.setItem("password", getForm.password);
       navigate('/login');
     }
-  }
+  } 
   return (
     <div>
       <nav className="navbar navbar-expand">
@@ -69,23 +76,29 @@ function Register() {
               <div className="form-group">
                 <label><h6>First Name</h6></label>
                 <input type="text" onChange={onChangeHandler} value={getForm.firstName} className="form-control" id="firstName" name="firstName" placeholder="First name" />
-              </div>
+                {getValidation.firstName && <div className="alert alert-danger" role="alert">
+                  {getValidation.firstName}
+                  </div>}
+                </div>
               <div className="form-group">
                 <label><h6>Last Name</h6></label>
                 <input type="text" onChange={onChangeHandler} value={getForm.lastName} className="form-control" id="lastName" name="lastName" placeholder="Last name" />
-              </div>
+                {getValidation.firstName && <div className="alert alert-danger" role="alert">
+                  {getValidation.lastName}
+                </div>}
+                </div>
 
               <div className="form-group">
                 <label><h6>Email address</h6></label>
                 <input type="email" onChange={onChangeHandler} value={getForm.email} className="form-control" id="email" name="email" placeholder="Enter email" />
-                {getValidation.email && <div class="alert alert-danger" role="alert">
+                {getValidation.email && <div className="alert alert-danger" role="alert">
                   {getValidation.email}
                 </div>}
               </div>
               <div className="form-group">
                 <label><h6>Password</h6></label>
                 <input type="password" onChange={onChangeHandler} value={getForm.password} className="form-control" id="password" name="password" placeholder="Enter Password" />
-                {getValidation.password && <div class="alert alert-danger" role="alert">
+                {getValidation.password && <div className="alert alert-danger" role="alert">
                   {getValidation.password}
                 </div>}
               </div>
