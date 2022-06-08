@@ -1,27 +1,25 @@
 {
   "posts": [
-    
     {
       "id": 1,
       "title": "python",
       "author": "jenboswell"
     },
-     {
-      "id":2,
+    {
+      "id": 2,
       "title": "CPP",
       "author": "vidhya baskar"
-     },
-     {
+    },
+    {
       "id": 3,
       "title": "Programming with JS",
       "author": "pearson"
-     },
-     {
+    },
+    {
       "id": 4,
       "title": "Programming with C",
       "author": "Don Britto"
-     }
-    
+    }
   ],
   "comments": [
     {
@@ -46,8 +44,8 @@
     }
   ],
   "profile": {
-    "name": "kartheeswaran",
-    "password":"kartheeswaran"
+    
+    "name":"typicode"
+    
   }
-  
 }
