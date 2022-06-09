@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { emailValidation, passwordValidation } from '../Validation';
+
 function Login() {
   const navigate = useNavigate();
   const [getForm, setForm] = useState({
@@ -26,6 +27,7 @@ function Login() {
       password: !passwordValidation(getForm.password) ? "Invalid password" : ""
     });
     if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
+
       let email = sessionStorage.getItem('email');
       let password = sessionStorage.getItem('password');
       if (email === getForm.email && password === getForm.password) {

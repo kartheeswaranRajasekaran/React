@@ -1,51 +1,51 @@
 {
-  "posts": [
+  "AddBook": [
     {
-      "id": 1,
+      "author": "peter.M.pascal",
+      "avail": "452",
+      "desc": "basics",
+      "title": "c"
+    },
+    {
+      "title": "c",
+      "desc": "basics",
+      "author": "peter.M.pascal",
+      "avail": "452"
+    },
+    {
       "title": "python",
-      "author": "jenboswell"
+      "desc": "it's contains basic functions of python",
+      "author": "venugopal",
+      "avail": "460"
     },
     {
-      "id": 2,
       "title": "CPP",
-      "author": "vidhya baskar"
+      "desc": "it's contains basic functions of CPP",
+      "author": "bhuja",
+      "avail": "452"
     },
     {
-      "id": 3,
-      "title": "Programming with JS",
-      "author": "pearson"
+      "title": "Pirates",
+      "desc": "The life of pirates carribean",
+      "author": "Peter Bhujva",
+      "avail": "600"
     },
     {
-      "id": 4,
-      "title": "Programming with C",
-      "author": "Don Britto"
+      "title": "space",
+      "desc": "about space",
+      "author": "stephan nolan",
+      "avail": "200"
     }
   ],
-  "comments": [
+  "Profile": [
     {
-      "id": 1,
-      "body": "nice quality",
-      "postId": 1
+      "id": 1
     },
     {
-      "id": 2,
-      "body": "nice quality",
-      "postId": 2
+      "id": 2
     },
     {
-      "id": 3,
-      "body": "nice quality",
-      "postId": 3
-    },
-    {
-      "id": 4,
-      "body": "nice quality",
-      "postId": 4
+      "id": 3
     }
-  ],
-  "profile": {
-    
-    "name":"typicode"
-    
-  }
+  ]
 }

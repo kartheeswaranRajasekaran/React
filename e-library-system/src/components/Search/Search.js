@@ -1,18 +1,13 @@
 import './Search.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 function Search(){
   const [getList, setList] = useState([]);
   const [getIndex, setIndex] = useState(-1);
   const [getSearch, setSearch] = useState('');
   useEffect(() => {
-    axios.get('http://localhost:3000/posts').then((posts)=>{
-        console.log(posts)
-
-    }).catch((error)=>{
-        console.log(error)
-    })
+  
       if (JSON.parse(sessionStorage.getItem('bookDetails')) && JSON.parse(sessionStorage.getItem('bookDetails')).length > 0) {
           setList(JSON.parse(sessionStorage.getItem('bookDetails')))
       }

@@ -1,9 +1,12 @@
 import './Register.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { emailValidation, passwordValidation ,fNameValidation,lNameValidation} from '../Validation';
+import axios from 'axios';
 function Register() {
   const navigate = useNavigate();
+  const [getList, setList] = useState([]);
+
   const [getForm, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -21,8 +24,11 @@ function Register() {
       ...getForm, [event.target.name]: event.target.value
     })
   }
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
+   
     setValidation({
       ...getValidation,
       firstName: !fNameValidation(getForm.firstName) ? "first name should be alphabet" : "nice",
@@ -31,13 +37,21 @@ function Register() {
       password: !passwordValidation(getForm.password) ? "Invalid password" : "",
     });
     if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
+      axios.post('http://localhost:3000/profile').then((profile)=>{
+        console.log(profile.data)
+    }).catch((error)=>{
+        console.log(error)
+    })
+
       alert("Successfully registered");
       sessionStorage.setItem("firstName",getForm.firstName);
       sessionStorage.setItem("lastName",getForm.lastName);
       sessionStorage.setItem("email", getForm.email);
       sessionStorage.setItem("password", getForm.password);
+      
       navigate('/login');
     }
+   
   } 
   return (
     <div>

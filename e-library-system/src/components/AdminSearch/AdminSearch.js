@@ -1,11 +1,18 @@
 import './AdminSearch.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 function AdminSearch() {
     const [getList, setList] = useState([]);
     const [getIndex, setIndex] = useState(-1);
     const [getSearch, setSearch] = useState('');
     useEffect(() => {
+        axios.get('http://localhost:3000/AddBook').then((AddBook)=>{
+            console.log(AddBook.data)
+        }).catch((error)=>{
+            console.log(error)
+        })
+
         if (JSON.parse(sessionStorage.getItem('bookDetails')) && JSON.parse(sessionStorage.getItem('bookDetails')).length > 0) {
             setList(JSON.parse(sessionStorage.getItem('bookDetails')))
         }
