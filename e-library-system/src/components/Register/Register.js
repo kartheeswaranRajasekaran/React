@@ -44,10 +44,7 @@ function Register() {
       password:getForm.password
     }).then(()=>{
       alert("Successfully registered");
-     
-        
         sessionStorage.setItem("email",getForm.email)
-        
         sessionStorage.setItem("password",getForm.password)
       navigate('/login');
     }).catch(()=>{
