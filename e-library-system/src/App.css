@@ -42,27 +42,28 @@ a:active{
   background-repeat:no-repeat;
   background-size: cover;
   color:#f9b004;
-  
 }
 .head1{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-transform:uppercase;
 }
 .classform{
-  width: 400px;
-  border-top: 1px solid #0000;
-  border-bottom: 1px solid #0000;
-  border-left: 1px solid #0000;
-  border-right: 1px solid #0000;
-  padding-top:15px;
-  padding-left:15px;
-  padding-right:15px;
-  padding-bottom:15px;
-  text-align: left;
-  font-size:15px;
-  background-color: rgba(238, 238, 238, 0.923);
-  margin-top: 120px;
+  width: 460px;
+    border-top: 1px solid #0000;
+    border-bottom: 1px solid #0000;
+    border-left: 6px solid #0000;
+    border-right: 1px solid #0000;
+    margin-left: 350px;
+    padding-top: 15px;
+    padding-left: 46px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+    font-size: 15px;
+    background-color: rgba(238, 238, 238, 0.923);
+    margin-top: 120px;
 }
+
 .image{
   width:100px;
   height:100px;

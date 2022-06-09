@@ -31,28 +31,31 @@ function Register() {
    
     setValidation({
       ...getValidation,
-      firstName: !fNameValidation(getForm.firstName) ? "first name should be alphabet" : "nice",
-      lastName: !lNameValidation(getForm.lastName) ? "last name should be alphabet" : "", 
+      firstName: fNameValidation(getForm.firstName) ? "first name should be alphabet" : "",
+      lastName: lNameValidation(getForm.lastName) ? "last name should be alphabet" : "", 
       email: !emailValidation(getForm.email) ? "Please provide proper email ID" : "",
       password: !passwordValidation(getForm.password) ? "Invalid password" : "",
     });
-    if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
-      axios.post('http://localhost:3000/profile').then((profile)=>{
-        console.log(profile.data)
-    }).catch((error)=>{
-        console.log(error)
-    })
-
+    if(getForm.firstName&&getForm.lastName&&getForm.email&&getForm.password){
+      axios.post('http://localhost:3000/profile',{
+      firstName:getForm.firstName,
+      lastName:getForm.lastName,
+      email:getForm.email,
+      password:getForm.password
+    }).then(()=>{
       alert("Successfully registered");
-      sessionStorage.setItem("firstName",getForm.firstName);
-      sessionStorage.setItem("lastName",getForm.lastName);
-      sessionStorage.setItem("email", getForm.email);
-      sessionStorage.setItem("password", getForm.password);
-      
+     
+        
+        sessionStorage.setItem("email",getForm.email)
+        
+        sessionStorage.setItem("password",getForm.password)
       navigate('/login');
+    }).catch(()=>{
+       alert("error");
+    })
+  }
+      
     }
-   
-  } 
   return (
     <div>
       <nav className="navbar navbar-expand">

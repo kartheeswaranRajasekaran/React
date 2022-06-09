@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { emailValidation, passwordValidation } from '../Validation';
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
@@ -28,11 +29,20 @@ function Login() {
     });
     if (emailValidation(getForm.email) && passwordValidation(getForm.password)) {
 
-      let email = sessionStorage.getItem('email');
-      let password = sessionStorage.getItem('password');
+      let email = sessionStorage.getItem('email')
+      let password =sessionStorage.getItem('password')
       if (email === getForm.email && password === getForm.password) {
+        axios.get("http://localhost:3000/profile").then((response) => {
+          
         alert("Logged Successfully");
-        navigate('/adminSearch');
+          navigate('/adminSearch');
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+       
       }
       else {
         if (email !== getForm.email && password === getForm.password) {
@@ -69,7 +79,9 @@ function Login() {
                   <td><img src={Libraryimg} className="image"></img></td>
                     <td className="tab"><h3>Library Management System</h3></td></tr>
                 </thead>
-                </table></div><br />
+                </table>
+                </div>
+                <br />
               <div className="form-group">
                 <label>User name &nbsp;<i className="fa fa-user" aria-hidden="true"></i><input type="text" id="username" onChange={onChangeHandler} value={getForm.email} name="email" /></label>
                 {getValidation.email && <div className="alert alert-danger" role="alert">
@@ -92,6 +104,7 @@ function Login() {
               <Link to="/adminHome">Admin</Link>
               </button>
             </form>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           </div>
         </div>
         <div className="col-4"></div>
