@@ -66,7 +66,7 @@ function Login() {
               <div className="head1">
                 <table><thead>
                   <tr>
-                    <td><img src={Libraryimg} className="image"></img></td>
+                  <td><img src={Libraryimg} className="image"></img></td>
                     <td className="tab"><h3>Library Management System</h3></td></tr>
                 </thead>
                 </table></div><br />

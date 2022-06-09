@@ -2,6 +2,7 @@ import './AddBook.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 function AddBook(){
     const navigate=useNavigate();
     const [getBook, setBook]=useState({
@@ -18,23 +19,26 @@ function AddBook(){
     const onAddHandler=(event)=>{
         event.preventDefault();
         if(getBook.title&&getBook.desc&&getBook.author&&getBook.avail){
-            let bookDetails=[];
-            if(sessionStorage.getItem('bookDetails')){
-                let details = JSON.parse(sessionStorage.getItem('bookDetails'));
-                bookDetails.push(...details);
-                bookDetails.push({...getBook});
-                sessionStorage.setItem("bookDetails",JSON.stringify(bookDetails));
-            }
-            else{
-                bookDetails.push({...getBook});
-                sessionStorage.setItem("bookDetails",JSON.stringify(bookDetails));
-            }
+            axios.post('http://localhost:3000/AddBook',{
+            title:getBook.title,
+            desc:getBook.desc,
+            author:getBook.author,
+            avail:getBook.avail
+          }).then(()=>{
             navigate('/adminSearch');
-        }
-        else{
-            alert("Add all details about the book");
-        }
+          }).catch(()=>{
+             alert("error");
+          })
     }
+
+    else{
+
+      alert("Please add some data");
+
+    }
+
+  }
+      
     return(<div>
         <form className="classform1">
             <br/>
