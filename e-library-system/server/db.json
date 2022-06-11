@@ -53,6 +53,13 @@
       "email": "kartheeswaran@gmail.com",
       "password": "yuthiksha2@",
       "id": 2
+    },
+    {
+      "firstName": "kartheeswaran",
+      "lastName": "AR",
+      "email": "kartheeswaran@gmail.com",
+      "password": "yuthiksha2@",
+      "id": 3
     }
   ]
 }
