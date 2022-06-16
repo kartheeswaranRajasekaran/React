@@ -1,16 +1,12 @@
 import {userContext} from './App';
+import {useSelector } from 'react-redux';
 
 const ComponentB =()=>{
+    const usersInfo = useSelector((state) => state.users);
+
+
     return(<div>
-        <userContext.Consumer>
-           {
-               user=>{
-                return(
-                    <div>componentB - {user}</div>
-                )
-               }
-           }
-        </userContext.Consumer>
+     ComponentB my name is  {usersInfo.fullName}
   
     </div>)
 }

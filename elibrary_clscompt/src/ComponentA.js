@@ -1,9 +1,20 @@
+import {useSelector,useDispatch } from 'react-redux';
+import Users from './services/users';
 
-import ComponentB from "./ComponentB";
 const ComponentA =()=>{
+
+    const dispatch = useDispatch();
+    const usersInfo = useSelector((state) => state.users);
+
+    const onSubmitHandler=()=>{
+         alert("submit");
+         Users.loadUsers(dispatch);
+    }
+
     return(<div>
-        ComponentA
-        <ComponentB/>
+        ComponentA my name is  {usersInfo.fullName}
+        <br/>
+        <button onClick={onSubmitHandler}>click here</button>
     </div>)
 }
 

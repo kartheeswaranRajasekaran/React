@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ComponentA from './ComponentA';
+import ComponentB from './ComponentB';
 import React from 'react';
 import UseReducer from './UseReducer';
 import UseRef from './UseRef';
@@ -12,12 +13,14 @@ function App() {
 
   return (
     <div className="App">
+         <ComponentA />
+         <ComponentB/>
       {/* <userContext.Provider value={"salman"}>
       <ComponentA />
       </userContext.Provider> */}
      {/* <UseReducer/>
      <UseRef/> */}
-     <UseCallBack/>
+     {/* <UseCallBack/> */}
     </div>
   );
 }
